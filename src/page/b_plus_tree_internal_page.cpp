@@ -102,7 +102,9 @@ namespace cmudb {
     void B_PLUS_TREE_INTERNAL_PAGE_TYPE::PopulateNewRoot(
             const ValueType &old_value, const KeyType &new_key,
             const ValueType &new_value) {
-        
+        array[0].second = old_value;
+        array[1].first = new_key;
+        array[1].second = new_value;
     }
 /*
  * Insert new_key & new_value pair right after the pair with its value ==
@@ -134,24 +136,31 @@ namespace cmudb {
             BPlusTreeInternalPage *recipient,
             BufferPoolManager *buffer_pool_manager) {
         //TODO: How to use buffer_pool_manager
-        int size = (GetSize() - 1) / 2 + 1;
-        recipient->CopyHalfFrom(array, size, buffer_pool_manager);
-        recipient->SetSize(size);
-        for (int i = size; i < GetSize(); i++) {
-            array[i - size] = array[i];
-        }
-        SetSize(GetSize() - size);
+        recipient->CopyHalfFrom(array, GetSize(), buffer_pool_manager);
+        SetSize((GetSize() + 1) / 2);
+//        int size = (GetSize() - 1) / 2 + 1;
+//        recipient->CopyHalfFrom(array, size, buffer_pool_manager);
+//        recipient->SetSize(size);
+//        for (int i = size; i < GetSize(); i++) {
+//            array[i - size] = array[i];
+//        }
+//        SetSize(GetSize() - size);
     }
 
     INDEX_TEMPLATE_ARGUMENTS
     void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyHalfFrom(
             MappingType *items, int size, BufferPoolManager *buffer_pool_manager) {
         //TODO: How to use buffer_pool_manager
-        for (int i = 0; i < size; i++) {
-            array[i] = items[i];
-            BPlusTreeInternalPage* child = (BPlusTreeInternalPage*)buffer_pool_manager->FetchPage(items[i].second);
-            child->SetParentPageId(GetPageId());
+        int half = size - ((size + 1) / 2);
+        for (int i = size - half; i < size; i++) {
+            array[i - size + half] = items[i];
         }
+        SetSize(half);
+//        for (int i = 0; i < size; i++) {
+//            array[i] = items[i];
+//            BPlusTreeInternalPage* child = (BPlusTreeInternalPage*)buffer_pool_manager->FetchPage(items[i].second);
+//            child->SetParentPageId(GetPageId());
+//        }
     }
 
 /*****************************************************************************

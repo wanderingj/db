@@ -121,7 +121,7 @@ namespace cmudb {
             BPlusTreeLeafPage *recipient,
             __attribute__((unused)) BufferPoolManager *buffer_pool_manager) {
         recipient->CopyHalfFrom(array, GetSize());
-        SetSize(GetSize() / 2);
+        SetSize((GetSize() + 1) / 2);
 //        int size = (GetSize() + 1) / 2;
 //        recipient->CopyHalfFrom(array, size);
 //        for (int i = size; i < GetSize(); i++) {
@@ -132,7 +132,7 @@ namespace cmudb {
 
     INDEX_TEMPLATE_ARGUMENTS
     void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyHalfFrom(MappingType *items, int size) {
-        int half = size - (size / 2);
+        int half = size - ((size + 1) / 2);
         for (int i = size - half; i < size; i++) {
             array[i - size + half] = items[i];
         }
