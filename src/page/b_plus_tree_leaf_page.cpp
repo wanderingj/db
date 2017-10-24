@@ -101,7 +101,7 @@ namespace cmudb {
                 break;
             }
         }
-        for (int j = GetSize(); j >= i; j--) {
+        for (int j = GetSize() - 1; j >= i; j--) {
             array[j + 1] = array[j];
         }
         array[i].first = key;
@@ -120,20 +120,23 @@ namespace cmudb {
     void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(
             BPlusTreeLeafPage *recipient,
             __attribute__((unused)) BufferPoolManager *buffer_pool_manager) {
-        int size = (GetSize() + 1) / 2;
-        recipient->CopyHalfFrom(array, size);
-        for (int i = size; i < GetSize(); i++) {
-            array[i - size] = array[i];
-        }
-        SetSize(GetSize() - size);
+        recipient->CopyHalfFrom(array, GetSize());
+        SetSize(GetSize() / 2);
+//        int size = (GetSize() + 1) / 2;
+//        recipient->CopyHalfFrom(array, size);
+//        for (int i = size; i < GetSize(); i++) {
+//            array[i - size] = array[i];
+//        }
+//        SetSize(GetSize() - size);
     }
 
     INDEX_TEMPLATE_ARGUMENTS
     void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyHalfFrom(MappingType *items, int size) {
-        for (int i = 0; i < size; i++) {
-            array[i] = items[i];
+        int half = size - (size / 2);
+        for (int i = size - half; i < size; i++) {
+            array[i - size + half] = items[i];
         }
-        SetSize(size);
+        SetSize(half);
     }
 
 /*****************************************************************************
@@ -220,7 +223,7 @@ namespace cmudb {
         recipient->CopyLastFrom(array[0]);
         BPlusTreeInternalPage* parent = (BPlusTreeInternalPage*)buffer_pool_manager->FetchPage(GetParentPageId());
         //TODO: what is key
-        parent->SetKeyAt(parent->ValueIndex(this), array[1]);
+        parent->SetKeyAt(parent->ValueIndex(GetPageId()), array[1]);
         for (int i = 1; i < GetSize(); i++) {
             array[i - 1] = array[i];
         }
@@ -254,7 +257,7 @@ namespace cmudb {
         array[0] = item;
         BPlusTreeInternalPage* parent = (BPlusTreeInternalPage*)buffer_pool_manager->FetchPage(GetParentPageId());
         //TODO: what is key
-        parent->SetKeyAt(parent->ValueIndex(this), array[1]);
+        parent->SetKeyAt(parent->ValueIndex(GetPageId()), array[1]);
     }
 
 /*****************************************************************************

@@ -91,16 +91,16 @@ namespace cmudb {
 
         B_PLUS_TREE_LEAF_PAGE_TYPE *FindLeafPage(const KeyType &key,
                                                  bool leftMost = false);
-
+        bool GetValueHelper(const KeyType &key,
+                            std::vector<ValueType> &result,
+                            page_id_t pageId);
+        void InsertToLeaf(page_id_t leafId, const KeyType &key, const ValueType &value);
+//        void insertToInternal(page_id_t page_id, const ValueType &old_value, const KeyType &key, const ValueType &value);
         // member variable
         std::string index_name_;
         page_id_t root_page_id_;
         BufferPoolManager *buffer_pool_manager_;
         KeyComparator comparator_;
-
-        bool GetValueHelper(const KeyType &key,
-                            std::vector<ValueType> &result,
-                            page_id_t pageId);
     };
 
 } // namespace cmudb

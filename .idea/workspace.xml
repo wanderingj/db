@@ -3,15 +3,13 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="SQLite_VTable" targetName="ExperimentalUpdate" />
-      <config projectName="SQLite_VTable" targetName="ContinuousUpdate" />
-      <config projectName="SQLite_VTable" targetName="ExperimentalBuild" />
+      <config projectName="SQLite_VTable" targetName="rwmutex_test" />
       <config projectName="SQLite_VTable" targetName="ContinuousMemCheck" />
       <config projectName="SQLite_VTable" targetName="check" />
-      <config projectName="SQLite_VTable" targetName="sqlite3" />
       <config projectName="SQLite_VTable" targetName="ContinuousTest" />
       <config projectName="SQLite_VTable" targetName="NightlyConfigure" />
       <config projectName="SQLite_VTable" targetName="ExperimentalTest" />
-      <config projectName="SQLite_VTable" targetName="ContinuousBuild" />
+      <config projectName="SQLite_VTable" targetName="NightlyMemCheck" />
       <config projectName="SQLite_VTable" targetName="buffer_pool_manager_test" />
       <config projectName="SQLite_VTable" targetName="ExperimentalCoverage" />
       <config projectName="SQLite_VTable" targetName="sqlite3_shell" />
@@ -20,31 +18,33 @@
       <config projectName="SQLite_VTable" targetName="NightlyCoverage" />
       <config projectName="SQLite_VTable" targetName="Continuous" />
       <config projectName="SQLite_VTable" targetName="ExperimentalStart" />
+      <config projectName="SQLite_VTable" targetName="lru_replacer_test" />
       <config projectName="SQLite_VTable" targetName="virtual_table_test" />
       <config projectName="SQLite_VTable" targetName="ContinuousCoverage" />
-      <config projectName="SQLite_VTable" targetName="Experimental" />
-      <config projectName="SQLite_VTable" targetName="tuple_test" />
-      <config projectName="SQLite_VTable" targetName="NightlyTest" />
+      <config projectName="SQLite_VTable" targetName="ContinuousBuild" />
       <config projectName="SQLite_VTable" targetName="ExperimentalSubmit" />
       <config projectName="SQLite_VTable" targetName="b_plus_tree_test" />
-      <config projectName="SQLite_VTable" targetName="b_plus_tree_print_test" />
-      <config projectName="SQLite_VTable" targetName="rwmutex_test" />
-      <config projectName="SQLite_VTable" targetName="NightlyStart" />
+      <config projectName="SQLite_VTable" targetName="ContinuousUpdate" />
+      <config projectName="SQLite_VTable" targetName="ContinuousSubmit" />
+      <config projectName="SQLite_VTable" targetName="ContinuousStart" />
+      <config projectName="SQLite_VTable" targetName="sqlite3" />
+      <config projectName="SQLite_VTable" targetName="NightlyTest" />
       <config projectName="SQLite_VTable" targetName="NightlyUpdate" />
-      <config projectName="SQLite_VTable" targetName="NightlySubmit" />
+      <config projectName="SQLite_VTable" targetName="ContinuousConfigure" />
       <config projectName="SQLite_VTable" targetName="ExperimentalConfigure" />
       <config projectName="SQLite_VTable" targetName="header_page_test" />
-      <config projectName="SQLite_VTable" targetName="type_test" />
+      <config projectName="SQLite_VTable" targetName="b_plus_tree_print_test" />
       <config projectName="SQLite_VTable" targetName="NightlyMemoryCheck" />
       <config projectName="SQLite_VTable" targetName="extendible_hash_test" />
-      <config projectName="SQLite_VTable" targetName="gtest" />
+      <config projectName="SQLite_VTable" targetName="NightlyStart" />
       <config projectName="SQLite_VTable" targetName="Nightly" />
-      <config projectName="SQLite_VTable" targetName="ContinuousConfigure" />
-      <config projectName="SQLite_VTable" targetName="ContinuousSubmit" />
-      <config projectName="SQLite_VTable" targetName="lru_replacer_test" />
+      <config projectName="SQLite_VTable" targetName="tuple_test" />
+      <config projectName="SQLite_VTable" targetName="type_test" />
+      <config projectName="SQLite_VTable" targetName="ExperimentalBuild" />
+      <config projectName="SQLite_VTable" targetName="gtest" />
       <config projectName="SQLite_VTable" targetName="ExperimentalMemCheck" />
-      <config projectName="SQLite_VTable" targetName="ContinuousStart" />
-      <config projectName="SQLite_VTable" targetName="NightlyMemCheck" />
+      <config projectName="SQLite_VTable" targetName="Experimental" />
+      <config projectName="SQLite_VTable" targetName="NightlySubmit" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -54,8 +54,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c326a23-7fef-44c7-be5c-29c4f1fb7834" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/index/b_plus_tree.h" afterPath="$PROJECT_DIR$/src/include/index/b_plus_tree.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index/b_plus_tree.cpp" afterPath="$PROJECT_DIR$/src/index/b_plus_tree.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" afterPath="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" afterPath="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,19 +74,24 @@
       <file leaf-file-name="b_plus_tree_page.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="181">
+              <caret line="35" column="6" lean-forward="false" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_plus_tree.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="b_plus_tree.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="-1090">
+              <caret line="171" column="24" lean-forward="true" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+              <folding>
+                <element signature="e#6887#6899#0" expanded="true" />
+                <element signature="e#10473#10485#0" expanded="true" />
+                <element signature="e#11269#11281#0" expanded="true" />
+                <element signature="e#12008#12020#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,28 +99,23 @@
       <file leaf-file-name="b_plus_tree.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="390">
+              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+              <folding>
+                <element signature="e#2618#2630#0" expanded="true" />
+                <element signature="e#2675#2687#0" expanded="true" />
+                <element signature="e#2787#2799#0" expanded="true" />
+                <element signature="e#3032#3044#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_plus_tree_internal_page.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="b_plus_tree_internal_page.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="b_plus_tree_internal_page.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1008">
-              <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+            <state relative-caret-position="244">
+              <caret line="104" column="8" lean-forward="false" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
               <folding>
                 <element signature="e#41#60#0" expanded="true" />
               </folding>
@@ -119,21 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_plus_tree_leaf_page.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp">
+      <file leaf-file-name="b_plus_tree_internal_page.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="257" column="5" lean-forward="true" selection-start-line="257" selection-start-column="5" selection-end-line="257" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="b_plus_tree_leaf_page.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="30">
+              <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -153,8 +147,14 @@
       <find>b_plus_tree_internal_page</find>
       <find>insertintopa</find>
       <find>KeyComparator</find>
-      <find>compar</find>
       <find>movehalf</find>
+      <find>null</find>
+      <find>buffer_pool_manager_</find>
+      <find>compar</find>
+      <find>SetKeyAt</find>
+      <find>comparator</find>
+      <find>buffer</find>
+      <find>InsertIntoParent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,11 +165,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/page/b_plus_tree_page.cpp" />
         <option value="$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h" />
-        <option value="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" />
-        <option value="$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h" />
         <option value="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" />
+        <option value="$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h" />
         <option value="$PROJECT_DIR$/src/index/b_plus_tree.cpp" />
         <option value="$PROJECT_DIR$/src/include/index/b_plus_tree.h" />
+        <option value="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" />
       </list>
     </option>
   </component>
@@ -181,12 +181,14 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="37" />
+    <option name="x" value="52" />
+    <option name="y" value="70" />
     <option name="width" value="1260" />
     <option name="height" value="697" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -207,43 +209,31 @@
           <expand>
             <path>
               <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="index" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SQLite_VTable" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="sqlite-fall2017" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -463,10 +453,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20801000" />
+    <option name="totallyTimeSpent" value="28540000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="37" width="1260" height="697" extended-state="0" />
+    <frame x="52" y="70" width="1260" height="697" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -508,11 +498,152 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="e#6887#6899#0" expanded="true" />
+            <element signature="e#10473#10485#0" expanded="true" />
+            <element signature="e#11269#11281#0" expanded="true" />
+            <element signature="e#12008#12020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="7" lean-forward="false" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="e#2618#2630#0" expanded="true" />
+            <element signature="e#2675#2687#0" expanded="true" />
+            <element signature="e#2787#2799#0" expanded="true" />
+            <element signature="e#3032#3044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/table_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/header_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-888">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="7" lean-forward="false" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="e#6887#6899#0" expanded="true" />
+            <element signature="e#10473#10485#0" expanded="true" />
+            <element signature="e#11269#11281#0" expanded="true" />
+            <element signature="e#12008#12020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="e#2618#2630#0" expanded="true" />
+            <element signature="e#2675#2687#0" expanded="true" />
+            <element signature="e#2787#2799#0" expanded="true" />
+            <element signature="e#3032#3044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="e#2618#2630#0" expanded="true" />
+            <element signature="e#2675#2687#0" expanded="true" />
+            <element signature="e#2787#2799#0" expanded="true" />
+            <element signature="e#3032#3044#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -546,7 +677,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#6887#6899#0" expanded="true" />
+            <element signature="e#10473#10485#0" expanded="true" />
+            <element signature="e#11269#11281#0" expanded="true" />
+            <element signature="e#12008#12020#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -566,77 +702,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_page.cpp">
+    <entry file="file://$PROJECT_DIR$/src/include/index/generic_key.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="199">
+          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="e#1801#1817#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/buffer/buffer_pool_manager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h">
+    <entry file="file://$PROJECT_DIR$/src/include/page/page.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        <state relative-caret-position="188">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/buffer/buffer_pool_manager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="257" column="5" lean-forward="true" selection-start-line="257" selection-start-column="5" selection-end-line="257" selection-end-column="5" />
+        <state relative-caret-position="462">
+          <caret line="179" column="17" lean-forward="true" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="35" />
+        <state relative-caret-position="30">
+          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/index/generic_key.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding>
-            <element signature="e#41#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="181">
+          <caret line="35" column="6" lean-forward="false" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="390">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#2618#2630#0" expanded="true" />
+            <element signature="e#2675#2687#0" expanded="true" />
+            <element signature="e#2787#2799#0" expanded="true" />
+            <element signature="e#3032#3044#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="-1090">
+          <caret line="171" column="24" lean-forward="true" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+          <folding>
+            <element signature="e#6887#6899#0" expanded="true" />
+            <element signature="e#10473#10485#0" expanded="true" />
+            <element signature="e#11269#11281#0" expanded="true" />
+            <element signature="e#12008#12020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="104" column="8" lean-forward="false" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

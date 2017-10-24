@@ -101,7 +101,9 @@ namespace cmudb {
     INDEX_TEMPLATE_ARGUMENTS
     void B_PLUS_TREE_INTERNAL_PAGE_TYPE::PopulateNewRoot(
             const ValueType &old_value, const KeyType &new_key,
-            const ValueType &new_value) {}
+            const ValueType &new_value) {
+        
+    }
 /*
  * Insert new_key & new_value pair right after the pair with its value ==
  * old_value
@@ -113,7 +115,7 @@ namespace cmudb {
             const ValueType &new_value) {
         int index = ValueIndex(old_value);
         for (int i = GetSize() - 1; i > index; i--) {
-            array[i + 1] = i;
+            array[i + 1] = array[i];
         }
         array[index + 1].first = new_key;
         array[index + 1].second = new_value;

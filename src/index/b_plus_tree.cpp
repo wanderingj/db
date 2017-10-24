@@ -37,16 +37,34 @@ namespace cmudb {
     bool BPLUSTREE_TYPE::GetValue(const KeyType &key,
                                   std::vector<ValueType> &result,
                                   Transaction *transaction) {
-        // TODO: search
-        GetValueHelper(key, result, root_page_id_);
-        return false;
+        return GetValueHelper(key, result, root_page_id_);
     }
 
     INDEX_TEMPLATE_ARGUMENTS
-    bool GetValueHelper(const KeyType &key,
-                        std::vector<ValueType> &result,
-                        page_id_t pageId) {
-        return false;
+    bool BPLUSTREE_TYPE::GetValueHelper(const KeyType &key,
+                                        std::vector<ValueType> &result,
+                                        page_id_t pageId) {
+
+        BPlusTreePage *currPage = (BPlusTreePage *) buffer_pool_manager_->FetchPage(pageId);
+        if (currPage->IsLeafPage()) {
+            BPlusTreeLeafPage *currLeaf = (BPlusTreeLeafPage *) currPage;
+            ValueType value;
+            if (currLeaf->Lookup(key, value, comparator_)) {
+                result.push_back(value);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            BPlusTreeInternalPage *currInternal = (BPlusTreeInternalPage *) currPage;
+            // TODO: bi-search
+            for (int i = 1; i < currInternal->GetSize(); i++) {
+                if (comparator_.operator()(key, currInternal->KeyAt(i)) < 0) {
+                    return GetValueHelper(key, result, currInternal->ValueAt(i - 1));
+                }
+            }
+            return GetValueHelper(key, result, currInternal->ValueAt(currInternal->GetSize() - 1));
+        }
     }
 
 /*****************************************************************************
@@ -62,8 +80,21 @@ namespace cmudb {
     INDEX_TEMPLATE_ARGUMENTS
     bool BPLUSTREE_TYPE::Insert(const KeyType &key, const ValueType &value,
                                 Transaction *transaction) {
-        return false;
+        // when empty
+        if (root_page_id_ == INVALID_PAGE_ID) {
+            StartNewTree(key, value);
+            return true;
+        }
+//
+//        std::vector<ValueType> result;
+//        if (GetValue(key, result)) {
+//            return false;
+//        }
+
+        InsertIntoLeaf(key, value, transaction);
+        return true;
     }
+
 /*
  * Insert constant key & value pair into an empty tree
  * User needs to first ask for new page from buffer pool manager(NOTICE: throw
@@ -71,7 +102,15 @@ namespace cmudb {
  * tree's root page id and insert entry directly into leaf page.
  */
     INDEX_TEMPLATE_ARGUMENTS
-    void BPLUSTREE_TYPE::StartNewTree(const KeyType &key, const ValueType &value) {}
+    void BPLUSTREE_TYPE::StartNewTree(const KeyType &key, const ValueType &value) {
+        // TODO: right way to create page?
+        BPlusTreeLeafPage* root = (BPlusTreeLeafPage*)buffer_pool_manager_->NewPage(root_page_id_);
+        if (root == nullptr) {
+            // TODO: throw exception
+        }
+        root->Init(root_page_id_, INVALID_PAGE_ID);
+        root->Insert(key, value, comparator_);
+    }
 
 /*
  * Insert constant key & value pair into leaf page
@@ -84,7 +123,42 @@ namespace cmudb {
     INDEX_TEMPLATE_ARGUMENTS
     bool BPLUSTREE_TYPE::InsertIntoLeaf(const KeyType &key, const ValueType &value,
                                         Transaction *transaction) {
-        return false;
+        page_id_t currId = root_page_id_;
+        while (true) {
+            BPlusTreePage *page = (BPlusTreePage *) buffer_pool_manager_->FetchPage(currId);
+            if (page->IsLeafPage()) {
+                break;
+            }
+            BPlusTreeInternalPage *internalPage = (BPlusTreeInternalPage *) page;
+            // TODO: bi-search
+            for (int i = 1; i < internalPage->GetSize(); i++) {
+                if (comparator_.operator()(key, internalPage->KeyAt(i)) < 0) {
+                    currId = internalPage->ValueAt(i - 1);
+                    continue;
+                }
+            }
+            currId = internalPage->ValueAt(internalPage->GetSize() - 1);
+        }
+        BPlusTreeLeafPage* curr = (BPlusTreeLeafPage*) buffer_pool_manager_->FetchPage(currId);
+        ValueType v;
+        if (curr->Lookup(key, v, comparator_)) {
+            return false;
+        }
+        InsertToLeaf(currId, key, value);
+        return true;
+    }
+
+    INDEX_TEMPLATE_ARGUMENTS
+    void BPLUSTREE_TYPE::InsertToLeaf(page_id_t leafId, const KeyType &key, const ValueType &value) {
+        BPlusTreeLeafPage *page = (BPlusTreeLeafPage *) buffer_pool_manager_->FetchPage(leafId);
+        page->Insert(key, value, comparator_);
+        if (page->GetSize() < page->GetMaxSize())
+            return;
+        page_id_t newPageId;
+        BPlusTreeLeafPage *newPage = (BPlusTreeLeafPage *) buffer_pool_manager_->NewPage(newPageId);
+        newPage->Init(newPageId, page->GetParentPageId());
+        page->MoveHalfTo(newPage, buffer_pool_manager_);
+        InsertIntoParent(page,newPage->KeyAt(0), newPage);
     }
 
 /*
@@ -111,8 +185,41 @@ namespace cmudb {
     void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node,
                                           const KeyType &key,
                                           BPlusTreePage *new_node,
-                                          Transaction *transaction) {}
-
+                                          Transaction *transaction) {
+        BPlusTreeInternalPage *page = (BPlusTreeInternalPage *) buffer_pool_manager_->FetchPage(old_node->GetParentPageId());
+        page->InsertNodeAfter(old_node->GetPageId(), key, new_node->GetPageId());
+        if (page->GetSize() < page->GetMaxSize()) {
+            return;
+        }
+        page_id_t newId;
+        BPlusTreeInternalPage* newPage = (BPlusTreeInternalPage*)buffer_pool_manager_->NewPage(newId);
+        page->MoveHalfTo(newPage, buffer_pool_manager_);
+        if (page->IsRootPage()) {
+            BPlusTreeInternalPage* newRoot =  (BPlusTreeInternalPage*)buffer_pool_manager_->NewPage(root_page_id_);
+            newRoot->PopulateNewRoot(page->GetPageId(), newPage->KeyAt(0), newPage->ValueAt(0));
+        } else {
+            InsertIntoParent(page, newPage->KeyAt(0), newPage, transaction);
+        }
+    }
+//    INDEX_TEMPLATE_ARGUMENTS
+//    void BPLUSTREE_TYPE::insertToInternal(page_id_t page_id, ValueType &old_value, KeyType &key, ValueType &value) {
+//        BPlusTreeInternalPage *page = (BPlusTreeInternalPage *) buffer_pool_manager_->FetchPage(page_id);
+//        page->InsertNodeAfter(old_value, key, value);
+//        if (page->GetSize() < page->GetMaxSize()) {
+//            return;
+//        }
+//        page_id_t newId;
+//        BPlusTreeInternalPage* newPage = (BPlusTreeInternalPage*)buffer_pool_manager_->NewPage(newId);
+//        page->MoveHalfTo(newPage, buffer_pool_manager_);
+//        if (page->IsRootPage()) {
+//            page_id_t new_root_id;
+//            BPlusTreeInternalPage* newRoot =  (BPlusTreeInternalPage*)buffer_pool_manager_->NewPage(new_root_id);
+//            root_page_id_ = new_root_id;
+//            newRoot->PopulateNewRoot(page->GetPageId(), newPage->KeyAt(0), newPage->ValueAt(0));
+//        } else {
+//            insertToInternal(page->GetParentPageId(), page->GetPageId(), newPage->KeyAt(0), newPage->GetPageId());
+//        }
+//    }
 /*****************************************************************************
  * REMOVE
  *****************************************************************************/
