@@ -54,13 +54,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c326a23-7fef-44c7-be5c-29c4f1fb7834" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h" afterPath="$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h" afterPath="$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/index/b_plus_tree.h" afterPath="$PROJECT_DIR$/src/include/index/b_plus_tree.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index/b_plus_tree.cpp" afterPath="$PROJECT_DIR$/src/index/b_plus_tree.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" afterPath="$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" afterPath="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/b_plus_tree_page.cpp" afterPath="$PROJECT_DIR$/src/page/b_plus_tree_page.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,7 +70,7 @@
       <file leaf-file-name="b_plus_tree_page.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="349">
               <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
@@ -85,8 +80,8 @@
       <file leaf-file-name="b_plus_tree.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+            <state relative-caret-position="315">
+              <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -95,8 +90,8 @@
       <file leaf-file-name="b_plus_tree.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="93" column="25" lean-forward="false" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="25" />
+            <state relative-caret-position="493">
+              <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -115,7 +110,7 @@
       <file leaf-file-name="b_plus_tree_internal_page.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="-1008">
               <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
               <folding>
                 <element signature="e#41#60#0" expanded="true" />
@@ -157,9 +152,9 @@
       <find>compa</find>
       <find>b_plus_tree_internal_page</find>
       <find>insertintopa</find>
-      <find>movehalf</find>
       <find>KeyComparator</find>
       <find>compar</find>
+      <find>movehalf</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,6 +169,7 @@
         <option value="$PROJECT_DIR$/src/include/page/b_plus_tree_leaf_page.h" />
         <option value="$PROJECT_DIR$/src/page/b_plus_tree_leaf_page.cpp" />
         <option value="$PROJECT_DIR$/src/index/b_plus_tree.cpp" />
+        <option value="$PROJECT_DIR$/src/include/index/b_plus_tree.h" />
       </list>
     </option>
   </component>
@@ -462,12 +458,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508715180075</updated>
       <workItem from="1508715181458" duration="7206000" />
-      <workItem from="1508784111147" duration="13278000" />
+      <workItem from="1508784111147" duration="13595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20484000" />
+    <option name="totallyTimeSpent" value="20801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="37" width="1260" height="697" extended-state="0" />
@@ -594,16 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding>
-            <element signature="e#41#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_internal_page.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="944">
@@ -620,9 +606,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/b_plus_tree_internal_page.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1008">
+          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/page/b_plus_tree_page.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="349">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
@@ -630,16 +626,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/include/index/b_plus_tree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="93" column="25" lean-forward="false" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="25" />
+        <state relative-caret-position="493">
+          <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index/b_plus_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        <state relative-caret-position="315">
+          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="41" />
           <folding />
         </state>
       </provider>
